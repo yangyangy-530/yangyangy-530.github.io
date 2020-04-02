@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | Hexo</title>
+  <title>SQL怎么优化执行效率高 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+  <meta name="description" content="1.SQL优化的原则是：将一次操作需要读取的时间数减到最低，即在最短的时间达到最大的数据吞吐量。调整不良SQL通常可以从以下几点切入：（1）考虑其写法是否还有可优化内容（2）考虑SQL子查询是否可以用简单连接的方式进行重新书写（3）检查优化索引的使用（4）考虑数据库的优化器2.避免出现select * from table语句，要明确查出的字段3.在一个SQL语句中，如果一个where条件过滤的数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL怎么优化执行效率高">
+<meta property="og:url" content="http://yoursite.com/2020/04/02/SQL%E6%80%8E%E4%B9%88%E4%BC%98%E5%8C%96%E6%89%A7%E8%A1%8C%E6%95%88%E7%8E%87%E9%AB%98/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.SQL优化的原则是：将一次操作需要读取的时间数减到最低，即在最短的时间达到最大的数据吞吐量。调整不良SQL通常可以从以下几点切入：（1）考虑其写法是否还有可优化内容（2）考虑SQL子查询是否可以用简单连接的方式进行重新书写（3）检查优化索引的使用（4）考虑数据库的优化器2.避免出现select * from table语句，要明确查出的字段3.在一个SQL语句中，如果一个where条件过滤的数">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-02T12:18:17.000Z">
+<meta property="article:modified_time" content="2020-04-02T12:32:26.537Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -150,103 +154,156 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-SQL怎么优化执行效率高" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      SQL怎么优化执行效率高
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/02/SQL%E6%80%8E%E4%B9%88%E4%BC%98%E5%8C%96%E6%89%A7%E8%A1%8C%E6%95%88%E7%8E%87%E9%AB%98/" class="archive-article-date">
+
+        
+        <a href="/2020/04/02/SQL%E6%80%8E%E4%B9%88%E4%BC%98%E5%8C%96%E6%89%A7%E8%A1%8C%E6%95%88%E7%8E%87%E9%AB%98/" class="archive-article-date">
   	<time datetime="2020-04-02T12:18:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-02</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/02/SQL%E6%80%8E%E4%B9%88%E4%BC%98%E5%8C%96%E6%89%A7%E8%A1%8C%E6%95%88%E7%8E%87%E9%AB%98/">SQL怎么优化执行效率高</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.SQL优化的原则是：将一次操作需要读取的时间数减到最低，即在最短的时间达到最大的数据吞吐量。<br>调整不良SQL通常可以从以下几点切入：<br>（1）考虑其写法是否还有可优化内容<br>（2）考虑SQL子查询是否可以用简单连接的方式进行重新书写<br>（3）检查优化索引的使用<br>（4）考虑数据库的优化器<br>2.避免出现select * from table语句，要明确查出的字段<br>3.在一个SQL语句中，如果一个where条件过滤的数据库记录越多，定位越准确，则where条件应该前移<br>4.查询时尽可能使用索引覆盖。即对select的字段建立复合索引，这样查询时只进行索引扫描，不读数据块。<br>5.在判断有无符合条件的记录时建议不要使用select count（*）和select top 1 语句<br>6.使用内层限定原则，在拼写SQL语句时，将查询条件分解、分类并尽量在SQL语句的最里层进行限定，以减少数据的处理量。<br>7.应绝对避免在order by子句中使用表达式<br>8.小心in 和 or，需要注意in集合里的数据量。建议集合中的数据不超过200个<br>9.&lt;&gt;用&lt;, &gt;代替，&gt; 用&gt;= 替代，&lt;用 &lt;= 代替，这样可以有效的利用索引。<br>10.在查询时尽量减少对多余数据的独缺包括多余的列与多余的行<br>11.对于符合索引要注意，例如在建立复合索引时列的顺序是F1、F2、F3，则在where或order by子句中这些字段出现的顺序要与建立索引时的字段顺序一致、且必须包含第一列。只能是F1或F1,F2或F1、F2、F3。否则不会用到该索引</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/02/SQL%E6%80%8E%E4%B9%88%E4%BC%98%E5%8C%96%E6%89%A7%E8%A1%8C%E6%95%88%E7%8E%87%E9%AB%98/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/01/test/" class="archive-article-date">
-  	<time datetime="2020-04-01T03:22:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-01</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/01/test/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">test</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/01/test/">test</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/01/hello-world/" class="archive-article-date">
-  	<time datetime="2020-04-01T03:14:14.117Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/01/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -269,8 +326,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

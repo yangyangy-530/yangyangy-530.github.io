@@ -152,6 +152,69 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-SQL怎么优化执行效率高" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/02/SQL%E6%80%8E%E4%B9%88%E4%BC%98%E5%8C%96%E6%89%A7%E8%A1%8C%E6%95%88%E7%8E%87%E9%AB%98/">SQL怎么优化执行效率高</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/02/SQL%E6%80%8E%E4%B9%88%E4%BC%98%E5%8C%96%E6%89%A7%E8%A1%8C%E6%95%88%E7%8E%87%E9%AB%98/" class="archive-article-date">
+  	<time datetime="2020-04-02T12:18:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.SQL优化的原则是：将一次操作需要读取的时间数减到最低，即在最短的时间达到最大的数据吞吐量。<br>调整不良SQL通常可以从以下几点切入：<br>（1）考虑其写法是否还有可优化内容<br>（2）考虑SQL子查询是否可以用简单连接的方式进行重新书写<br>（3）检查优化索引的使用<br>（4）考虑数据库的优化器<br>2.避免出现select * from table语句，要明确查出的字段<br>3.在一个SQL语句中，如果一个where条件过滤的数据库记录越多，定位越准确，则where条件应该前移<br>4.查询时尽可能使用索引覆盖。即对select的字段建立复合索引，这样查询时只进行索引扫描，不读数据块。<br>5.在判断有无符合条件的记录时建议不要使用select count（*）和select top 1 语句<br>6.使用内层限定原则，在拼写SQL语句时，将查询条件分解、分类并尽量在SQL语句的最里层进行限定，以减少数据的处理量。<br>7.应绝对避免在order by子句中使用表达式<br>8.小心in 和 or，需要注意in集合里的数据量。建议集合中的数据不超过200个<br>9.&lt;&gt;用&lt;, &gt;代替，&gt; 用&gt;= 替代，&lt;用 &lt;= 代替，这样可以有效的利用索引。<br>10.在查询时尽量减少对多余数据的独缺包括多余的列与多余的行<br>11.对于符合索引要注意，例如在建立复合索引时列的顺序是F1、F2、F3，则在where或order by子句中这些字段出现的顺序要与建立索引时的字段顺序一致、且必须包含第一列。只能是F1或F1,F2或F1、F2、F3。否则不会用到该索引</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/02/SQL%E6%80%8E%E4%B9%88%E4%BC%98%E5%8C%96%E6%89%A7%E8%A1%8C%E6%95%88%E7%8E%87%E9%AB%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
